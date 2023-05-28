@@ -9,11 +9,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatTableModule} from '@angular/material/table';
+import { EstudiantesComponent } from './paginas/estudiantes/estudiantes.component';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
-    MateriasComponent
+    MateriasComponent,
+    EstudiantesComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
