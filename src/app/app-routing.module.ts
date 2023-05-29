@@ -7,7 +7,7 @@ import { InscribirComponent } from './paginas/inscribir/inscribir.component';
 
 const routes: Routes = [{ path: 'materias', component: MateriasComponent }, 
           {path: 'estudiantes', component: EstudiantesComponent },
-          {path: 'notas', component: NotasComponent },
+          {path: 'notas/:id', component: NotasComponent },
           { path: 'inscribir', component: InscribirComponent }];
 
 @NgModule({

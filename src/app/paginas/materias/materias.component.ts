@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Materia } from 'src/app/interfaces/materia';
 import { MateriaService } from 'src/app/servicios/materia.service';
 
@@ -9,7 +10,7 @@ import { MateriaService } from 'src/app/servicios/materia.service';
 })
 export class MateriasComponent implements OnInit{
   materias : Materia[] = [];
-  constructor(private materiaService: MateriaService){
+  constructor(private materiaService: MateriaService,private router: Router){
 
   }
   ngOnInit(): void {
@@ -18,5 +19,9 @@ export class MateriasComponent implements OnInit{
       error => console.log(error),
       () => console.log("FIN")
     )
+  }
+
+  navigate(id:number) {
+    this.router.navigate(['/notas', id]);
   }
 }

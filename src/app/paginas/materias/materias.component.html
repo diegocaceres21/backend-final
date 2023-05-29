@@ -9,8 +9,8 @@
           <p>{{materia.descripcion}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <a routerLink="../notas"><button mat-button >Notas</button></a>
-          <button routerLink="notas" mat-button>Inscritos</button>
+          <button (click)="navigate(materia.id)" mat-button >Notas</button>
+          <button  mat-button>Inscritos</button>
         </mat-card-actions>
       </mat-card>
             
