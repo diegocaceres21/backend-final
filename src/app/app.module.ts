@@ -11,12 +11,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { EstudiantesComponent } from './paginas/estudiantes/estudiantes.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { NotasComponent } from './paginas/notas/notas.component';
+import { InscribirComponent } from './paginas/inscribir/inscribir.component'
 @NgModule({
   declarations: [
     AppComponent,
     MateriasComponent,
-    EstudiantesComponent
+    EstudiantesComponent,
+    NotasComponent,
+    InscribirComponent
   ],
   imports: [
     BrowserModule,

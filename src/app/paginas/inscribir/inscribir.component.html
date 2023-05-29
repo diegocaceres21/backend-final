@@ -1,0 +1,45 @@
+<body>
+    <hr>
+    <h1>Inscripcion_del_estudiante</h1>
+    <form class="box">
+        <label for="Estudiante">Estudiante: </label>
+        <input type="text" id="Estudiante" name="Estudiante" required>
+
+        <label for="Estudiante"> Carnet-estudiante: </label>
+        <input type="text" id="Carnet-estudiante" name="Carnet-estudiante" required>
+
+        <label for="SIGLA-materia"> SIGLA-materia: </label>
+        <input type="text" id="SIGLA-materia" name="SIGLA-materia" required>
+
+
+        <label for="FECHA-inscripcion"> Fecha de inscripcion: </label>
+        <input type="date" id="FECHA-inscripcion" name="FECHA-inscripcion" required>
+
+        <script>
+            // Función para obtener la fecha actual
+            function mostrarFechaActual() {
+                var fechaActual = new Date();
+                
+                // Obtener los componentes de la fecha (día, mes, año)
+                var dia = fechaActual.getDate();
+                var mes = fechaActual.getMonth() + 1; // Los meses comienzan desde 0, así que se suma 1
+                var anio = fechaActual.getFullYear();
+                
+                // Formatear la fecha en el formato deseado (por ejemplo, DD/MM/AAAA)
+                var fechaFormateada = dia + '/' + mes + '/' + anio;
+                
+                // Insertar la fecha en el elemento HTML con el id "fechaActual"
+                document.getElementById("fechaActual").innerHTML = fechaFormateada;
+            }
+        </script>
+        
+        <h2>Fecha actual: <span id="fechaActual">Cargando fecha...</span></h2>
+        <script>
+            // Llamar a la función mostrarFechaActual cuando se cargue la página
+            window.onload = mostrarFechaActual;
+        </script>
+
+        <input class="enviarDato" type="submit" value="Enviar">
+    </form>
+    <hr>
+</body>

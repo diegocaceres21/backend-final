@@ -9,7 +9,7 @@ import { Estudiante } from 'src/app/interfaces/estudiante';
 })
 export class EstudiantesComponent {
   estudiantes : Estudiante[] = []
-  displayedColumns: string[] = ['carnet', 'nombre', 'celular', 'fecha'];
+  displayedColumns: string[] = ['carnet', 'nombre', 'celular', 'fecha', 'edit','delete','notas'];
 
   constructor(private estudianteService: EstudianteService){
 
