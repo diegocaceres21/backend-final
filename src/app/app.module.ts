@@ -10,17 +10,21 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { EstudiantesComponent } from './paginas/estudiantes/estudiantes.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NotasComponent } from './paginas/notas/notas.component';
-import { InscribirComponent } from './paginas/inscribir/inscribir.component'
+import { InscribirComponent } from './paginas/inscribir/inscribir.component';
+import { ConfirmarComponent } from './modals/confirmar/confirmar.component'
 @NgModule({
   declarations: [
     AppComponent,
     MateriasComponent,
     EstudiantesComponent,
     NotasComponent,
-    InscribirComponent
+    InscribirComponent,
+    ConfirmarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { InscribirComponent } from './paginas/inscribir/inscribir.component'
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatTableModule, HttpClientModule
+    MatTableModule,MatDialogModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
