@@ -1,6 +1,15 @@
 h1{
     text-align: center;
-    font-size: 24px;
+    background-color: rgb(27, 27, 124);
+    color: white;
+    font-size: 35px;
+    align-items: center;
+    display: flex;
+    height: 10vh;
+    padding: 14px;
+}
+label{
+    font-weight: bold;
 }
 h2{
     font-weight: normal;
@@ -8,8 +17,8 @@ h2{
 }
 hr {
     border: none;
-    border-top: 3px double #333;
-    color: #333;
+    border-top: 3px double #ad4444;
+    color: #0346ff;
     overflow: visible;
     text-align: center;
     height: 5px;
@@ -18,18 +27,26 @@ hr {
 .box {
     border: 1px solid #000;
     padding: 10px;
-    background-color: #f2f2f2;
+    background-color: rgb(188, 240, 223);
     border-radius: 5px;
 }
 
 input{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     text-justify: auto;
+    padding: 14px;
 }
 
 form{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+}
+
+.enviarDato{
+    background-color: rgb(187, 241, 38);
+    color:rgb(27, 27, 124);
+    font-weight: bold;
+    font-size:25px;
 }

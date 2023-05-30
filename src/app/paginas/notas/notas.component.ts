@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Nota } from 'src/app/interfaces/nota';
 import { NotaService } from 'src/app/servicios/nota.service';
+
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-notas',

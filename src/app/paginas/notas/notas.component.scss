@@ -1,0 +1,51 @@
+
+h1{
+    text-align: center;
+    background-color: rgb(27, 27, 124);
+    color: white;
+    font-size: 35px;
+    align-items: center;
+    display: flex;
+    height: 10vh;
+    padding: 14px;
+}
+h2{
+    text-align: center;
+}
+table, td ,th{
+    border: 1px solid black;
+    text-align: center;
+    font-size: 25px;
+    padding: 8px;
+    
+}
+table
+{
+    border-collapse: collapse;
+    width: 98%;
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+
+    
+}
+th{
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+
+}
+
+tr th{
+    
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: aquamarine;
+    padding: 10px;
+
+}
