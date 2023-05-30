@@ -24,7 +24,7 @@ export class InscripcionService{
         }
         const inscripcion  =new Inscripcion();
         inscripcion.fecha_inscripcion = createInscripcion.fecha_inscripcion;
-        console.log(inscripcion.fecha_inscripcion)
+        //console.log(inscripcion.fecha_inscripcion)
         inscripcion.materia = materia;
         inscripcion.estudiante = estudiante;
         return this.InscripcionRepository.save(inscripcion);
@@ -39,10 +39,11 @@ export class InscripcionService{
     }
     update(id:number,updateInscripcion:UpdateInscripcion){
         return this.InscripcionRepository.update({id:id}, {
-            fecha_inscripcion:updateInscripcion.fecha_inscripcion
+            //fecha_inscripcion:updateInscripcion.fecha_inscripcion
         });
     }
     remove(id:number){
         return this.InscripcionRepository.delete(id);
     }
+
 }

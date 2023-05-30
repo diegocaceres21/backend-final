@@ -12,7 +12,7 @@ export class MateriaService{
     }
     findAll(){
           return  this.MateriaRepository.find({
-            relations:['nota']
+            relations:['nota','inscripcion']
           });
     }
     findOne(id:number){

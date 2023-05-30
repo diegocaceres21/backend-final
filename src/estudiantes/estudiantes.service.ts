@@ -12,7 +12,7 @@ export class EstudianteService{
     }
     findAll(){
           return  this.EstudianteRepository.find({
-            relations:['nota']
+            relations:['nota','inscripcion']
           }
             
           );

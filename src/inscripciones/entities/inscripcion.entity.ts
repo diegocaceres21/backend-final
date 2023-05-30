@@ -6,7 +6,7 @@ import { Estudiante } from 'src/estudiantes/entities/estudiante.entity';
 export class Inscripcion{
     @PrimaryGeneratedColumn()
     id:number;
-    @Column()
+    @Column({type:'date'})
     fecha_inscripcion:string;
     @ManyToOne(()=>Materia,(materia)=>materia.inscripcion)
     materia:Materia;

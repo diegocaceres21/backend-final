@@ -3,6 +3,6 @@ import { CreateEstudiante } from './create-estudiante.dto';
 export class UpdateEstudiante extends PartialType(CreateEstudiante){
     nombre_completo: string;
     celular: number;
-    fecha_nacimiento: Date;
+    fecha_nacimiento: string;
     
 }

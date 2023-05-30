@@ -9,8 +9,8 @@ export class Estudiante{
     nombre_completo:string;
     @Column()
     celular:number;
-    @Column()
-    fecha_nacimiento:Date;
+    @Column({type:'date'})
+    fecha_nacimiento:string;
     @OneToMany(()=>Nota,(nota)=>nota.estudiante)
     nota:Nota[]
     @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.estudiante)
