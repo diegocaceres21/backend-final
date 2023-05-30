@@ -1,5 +1,5 @@
 export class CreateInscripcion {
     carnet:number;
-    sigla: string;
+    id_materia: number;
     fecha_inscripcion: string;
 }

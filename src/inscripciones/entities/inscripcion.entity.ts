@@ -7,14 +7,9 @@ export class Inscripcion{
     @PrimaryGeneratedColumn()
     id:number;
     @Column()
-    carnet:number;
-    @Column()
-    sigla:string;
-   
-    @Column()
     fecha_inscripcion:string;
-    @ManyToOne(()=>Materia,(materia)=>materia.sigla)
+    @ManyToOne(()=>Materia,(materia)=>materia.inscripcion)
     materia:Materia;
-    @ManyToOne(()=>Estudiante,(estudiante)=>estudiante.carnet)
+    @ManyToOne(()=>Estudiante,(estudiante)=>estudiante.inscripcion)
     estudiante:Estudiante;
 }

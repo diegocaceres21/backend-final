@@ -15,6 +15,6 @@ export class Materia{
     departamento:string;
     @OneToMany(()=>Nota,(nota)=>nota.materia)
     nota:Nota[]
-    @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.sigla)
+    @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.materia)
     inscripcion:Inscripcion[]
 }
