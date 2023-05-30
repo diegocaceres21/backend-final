@@ -10,9 +10,9 @@ export class MateriasController {
     findAll(){
         return this.materiaService.findAll();
     }
-    @Get(':sigla')
-    findOne(@Param('sigla')sigla:string){
-        return this.materiaService.findOne(sigla);
+    @Get(':id')
+    findOne(@Param('id')id:number){
+        return this.materiaService.findOne(id);
 
     }
     @Post('')

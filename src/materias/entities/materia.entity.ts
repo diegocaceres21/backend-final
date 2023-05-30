@@ -4,6 +4,8 @@ import { Inscripcion } from 'src/inscripciones/entities/inscripcion.entity';
 @Entity()
 export class Materia{
     @PrimaryGeneratedColumn()
+    id
+    @Column()
     sigla:string;
     @Column()
     nombre:string;
@@ -11,7 +13,7 @@ export class Materia{
     creditos:number;
     @Column()
     departamento:string;
-    @OneToMany(()=>Nota,(nota)=>nota.sigla)
+    @OneToMany(()=>Nota,(nota)=>nota.materia)
     nota:Nota[]
     @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.sigla)
     inscripcion:Inscripcion[]

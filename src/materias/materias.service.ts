@@ -11,10 +11,12 @@ export class MateriaService{
           return this.MateriaRepository.save(createMateria);
     }
     findAll(){
-          return  this.MateriaRepository.find();
+          return  this.MateriaRepository.find({
+            relations:['nota']
+          });
     }
-    findOne(sigla:string){
-        return this.MateriaRepository.findOneBy({sigla:sigla});
+    findOne(id:number){
+        return this.MateriaRepository.findOneBy({id:id});
     }
     update(sigla:string,updateMateria:UpdateMateria){
         return this.MateriaRepository.update({sigla:sigla}, {

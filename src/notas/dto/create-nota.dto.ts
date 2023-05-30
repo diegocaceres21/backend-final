@@ -1,7 +1,7 @@
 export class CreateNota {
     
    carnet: number;
-    sigla:string;
+   id_materia:number;
     gestion: string;
     evaluacion:string;
     calificacion: number;

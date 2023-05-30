@@ -12,7 +12,9 @@ export class InscripcionService{
           return this.InscripcionRepository.save(createInscripcion);
     }
     findAll(){
-          return  this.InscripcionRepository.find();
+          return  this.InscripcionRepository.find({
+            relations:['nota']
+          });
     }
     findOne(id:number){
         return this.InscripcionRepository.findOneBy({id:id});

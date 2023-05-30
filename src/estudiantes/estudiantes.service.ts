@@ -11,7 +11,11 @@ export class EstudianteService{
           return this.EstudianteRepository.save(createEstudiante);
     }
     findAll(){
-          return  this.EstudianteRepository.find();
+          return  this.EstudianteRepository.find({
+            relations:['nota']
+          }
+            
+          );
     }
     findOne(carnet:number){
         return this.EstudianteRepository.findOneBy({carnet:carnet});

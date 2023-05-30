@@ -11,7 +11,7 @@ export class Estudiante{
     celular:number;
     @Column()
     fecha_nacimiento:string;
-    @OneToMany(()=>Nota,(nota)=>nota.carnet)
+    @OneToMany(()=>Nota,(nota)=>nota.estudiante)
     nota:Nota[]
     @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.carnet)
     inscripcion:Inscripcion[]
