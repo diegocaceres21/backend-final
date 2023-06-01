@@ -16,17 +16,22 @@ export class MateriaService{
           });
     }
     findOne(id:number){
-        return this.MateriaRepository.findOneBy({id:id});
+        return this.MateriaRepository.findOne({
+            where: {
+              id,
+            },relations: ['nota', 'inscripcion']
+          });
     }
     update(sigla:string,updateMateria:UpdateMateria){
         return this.MateriaRepository.update({sigla:sigla}, {
             sigla:updateMateria.sigla,
             nombre:updateMateria.nombre,
-            creditos:updateMateria.creditos,
-            departamento:updateMateria.departamento
+            descripcion:updateMateria.descripcion,
+            //departamento:updateMateria.departamento
         });
     }
     remove(sigla:string){
         return this.MateriaRepository.delete(sigla);
     }
+    
 }

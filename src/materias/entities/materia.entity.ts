@@ -10,9 +10,11 @@ export class Materia{
     @Column()
     nombre:string;
     @Column()
+    descripcion:string;
+    /*@Column()
     creditos:number;
     @Column()
-    departamento:string;
+    departamento:string;*/
     @OneToMany(()=>Nota,(nota)=>nota.materia)
     nota:Nota[]
     @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.materia)

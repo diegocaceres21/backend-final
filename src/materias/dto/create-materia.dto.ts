@@ -1,6 +1,7 @@
 export class CreateMateria {
     sigla:string;
     nombre: string;
-    creditos: number;
-    departamento: string;
+    descripcion:string;
+    //creditos: number;
+    //departamento: string;
 }

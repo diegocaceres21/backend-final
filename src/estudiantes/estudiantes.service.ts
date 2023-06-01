@@ -11,14 +11,15 @@ export class EstudianteService{
           return this.EstudianteRepository.save(createEstudiante);
     }
     findAll(){
-          return  this.EstudianteRepository.find({
-            relations:['nota','inscripcion']
-          }
-            
+          return  this.EstudianteRepository.find(      
           );
     }
     findOne(carnet:number){
-        return this.EstudianteRepository.findOneBy({carnet:carnet});
+        return this.EstudianteRepository.findOne({
+            where: {
+              carnet,
+            },relations: ['nota', 'inscripcion']
+          });
     }
     update(carnet:number,updateEstudiante:UpdateEstudiante){
         return this.EstudianteRepository.update({carnet:carnet}, {
