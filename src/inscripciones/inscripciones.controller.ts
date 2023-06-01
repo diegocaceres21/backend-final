@@ -15,7 +15,10 @@ export class InscripcionesController {
     @Get(':id')
     findOne(@Param('id')id:number){
         return this.inscripcionService.findOne(+id);
-
+    }
+    @Get('/materia/:id')
+    findMateria(@Param('id')id:number){
+        return this.inscripcionService.findMateria(+id);
     }
     @Post('')
     create(@Body()createInscripcion:CreateInscripcion){

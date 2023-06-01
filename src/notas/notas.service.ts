@@ -43,7 +43,25 @@ export class NotaService{
           });
     }
     findOne(id:number){
-        return this.NotaRepository.findOneBy({id:id});
+        return this.NotaRepository.findOne({
+            where: {
+              id,
+            },relations: ['materia','estudiante']
+          });;
+    }
+    findMateria(id:number){
+        return this.NotaRepository.createQueryBuilder('nota')
+        //.select('materia','estudiante')
+        .leftJoinAndSelect('nota.materia', 'materia')
+        .leftJoinAndSelect('nota.estudiante', 'estudiante')
+        .where('materia.id = :id', { id })
+        .getMany();
+        
+        /*find({
+            where: {
+              materia.id : id,
+            },relations: ['materia','estudiante']
+          });*/
     }
     update(id:number,updateNota:UpdateNota){
        /* return this.NotaRepository.update({id:id}, {

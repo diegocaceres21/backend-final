@@ -17,6 +17,10 @@ export class NotasController {
         return this.notasService.findOne(+id);
 
     }
+    @Get('/materia/:id')
+    findMateria(@Param('id')id:number){
+        return this.notasService.findMateria(+id);
+    }
     @Post('')
     create(@Body()createNota:CreateNota){
         return this.notasService.create(createNota);

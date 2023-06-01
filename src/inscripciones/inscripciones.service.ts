@@ -37,6 +37,21 @@ export class InscripcionService{
     findOne(id:number){
         return this.InscripcionRepository.findOneBy({id:id});
     }
+
+    findMateria(id:number){
+        return this.InscripcionRepository.createQueryBuilder('nota')
+        //.select('materia','estudiante')
+        .leftJoinAndSelect('nota.materia', 'materia')
+        .leftJoinAndSelect('nota.estudiante', 'estudiante')
+        .where('materia.id = :id', { id })
+        .getMany();
+        
+        /*find({
+            where: {
+              materia.id : id,
+            },relations: ['materia','estudiante']
+          });*/
+    }
     update(id:number,updateInscripcion:UpdateInscripcion){
         return this.InscripcionRepository.update({id:id}, {
             //fecha_inscripcion:updateInscripcion.fecha_inscripcion
