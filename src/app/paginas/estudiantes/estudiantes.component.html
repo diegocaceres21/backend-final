@@ -1,13 +1,13 @@
+<div>
+  <button class="nuevo" (click)="openNewForm()" mat-icon-button><mat-icon>add</mat-icon></button>
+</div>
 <table mat-table [dataSource]="estudiantes" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
     <!-- Position Column -->
-    <ng-container matColumnDef="carnet">
-      <th mat-header-cell *matHeaderCellDef> Carnet </th>
-      <td mat-cell *matCellDef="let est"> {{est.carnet}} </td>
-    </ng-container>
+    
   
     <!-- Name Column -->
     <ng-container matColumnDef="nombre">

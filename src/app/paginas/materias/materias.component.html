@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    <button class="nuevo" (click)="openDialog()" mat-icon-button><mat-icon>add</mat-icon></button>
+  </div>
     <mat-card *ngFor="let materia of materias" class="materia-card">
         <mat-card-header>
           <mat-card-title>{{materia.nombre}}</mat-card-title>
@@ -9,8 +12,8 @@
           <p>{{materia.descripcion}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button (click)="navigate(materia.id)" mat-button >Notas</button>
-          <button  mat-button>Inscritos</button>
+          <button (click)="navigate(materia.id!)" mat-button >Notas</button>
+          <button (click)="navigatetoinscritos(materia.sigla, materia.nombre)" mat-button>Inscritos</button>
         </mat-card-actions>
       </mat-card>
             

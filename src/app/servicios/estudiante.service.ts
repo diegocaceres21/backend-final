@@ -10,7 +10,7 @@ export class EstudianteService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'assets/estudiantes.json'
+  url = 'http://localhost:3000/estudiantes'
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

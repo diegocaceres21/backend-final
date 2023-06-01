@@ -1,0 +1,32 @@
+[
+    {
+        "carnet_estudiante": 484448,
+        "estudiante": "Juan Perez",
+        "fechainscripcion": "Enero 13 2023 10:21:34 GMT-0400 (hora de Bolivia)",
+        "gestion": "1-2023"
+    },
+    {
+        "carnet_estudiante": 484449,
+        "estudiante": "Fulano de tal",
+        "fechainscripcion": "Enero 14 2023 9:21:34  GMT-0400 (hora de Bolivia)",
+        "gestion": "1-2023"
+    },
+    {
+        "carnet_estudiante": 484450,
+        "estudiante": "David Bisbal",
+        "fechainscripcion": "Enero 11 2023 15:06:56 GMT-0400 (hora de Bolivia)",
+        "gestion": "1-2023"
+    },
+    {
+        "carnet_estudiante": 1449,
+        "estudiante": "Carlomagno",
+        "fechainscripcion": "Abril 2 742 9:21:34 GMT+0200 (hora de Italia)",
+        "gestion": "2-742"
+    },
+    {
+        "carnet_estudiante": 324549,
+        "estudiante": "Gabriel Garcia M",
+        "fechainscripcion": "Marzo 6 1927 9:21:34 GMT-0500 (hora de Colombia)",
+        "gestion": "1-1927"
+    }
+]
