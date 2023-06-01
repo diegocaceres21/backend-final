@@ -38,8 +38,8 @@ export class MateriasComponent implements OnInit{
       }
     });
   }
-  navigatetoinscritos(sigla:string, nombre:string) 
+  navigatetoinscritos(id:number, nombre:string) 
   {
-    this.router.navigate(['/inscritos', sigla, nombre]);
+    this.router.navigate(['/inscritos', id, nombre]);
   }
 }

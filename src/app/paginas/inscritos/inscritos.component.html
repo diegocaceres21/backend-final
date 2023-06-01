@@ -7,16 +7,17 @@
                 <th>Carnet Estudiante</th>
                 <th>Nombre</th>
                 <th>fechainscripcion</th>
-                <th>Gestión</th>
+                <!--<th>Gestión</th>-->
             </tr>
                 
             </thead>
             <tbody>
                 <tr *ngFor="let item of inscritos">
-                    <td>{{item.carnet_estudiante}}</td>
-                    <td>{{item.estudiante}}</td>
-                    <td>{{item.fechainscripcion}}</td>
-                    <td>{{item.gestion}}</td>
+                    <!--<td>{{item.carnet_estudiante}}</td>-->
+                    <td>{{item.estudiante.nombre_completo}}</td>
+                    <td>{{item.estudiante.celular}}</td>
+                    <td>{{item.fecha_inscripcion}}</td>
+                    <!--<td>{{item.gestion}}</td>-->
                 </tr>
             </tbody>
         </table>

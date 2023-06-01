@@ -12,7 +12,7 @@ export class NotasComponent {
   notas : Nota[] = [];
   id: string | null ='';
   constructor(private notasService: NotaService,private route: ActivatedRoute){
-
+    
   }
   ngOnInit(): void {
 
@@ -22,7 +22,7 @@ export class NotasComponent {
       console.log(this.id);
     });
 
-    this.notasService.obtenerDatos().subscribe(
+    this.notasService.obtenerDatos(this.id!).subscribe(
       (data) => this.notas = data,
       error => console.log(error),
       () => console.log("FIN")

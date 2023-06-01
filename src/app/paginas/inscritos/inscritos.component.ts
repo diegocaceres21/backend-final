@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class InscritosComponent {
 
   inscritos : Inscrito[] = [];
-  sigla: string | null ='';
+  id: string | null ='';
   nombreMateria: string = ''; // Variable para almacenar el nombre de la materia
   nombreCOMPLETO: string = ''; // Variable para juntar el nombre con la sigla
   constructor(private inscritosService: InscribirService,private route: ActivatedRoute){
@@ -22,14 +22,15 @@ export class InscritosComponent {
 
     this.route.paramMap.subscribe(params => 
     {
-      this.sigla = params.get('sigla');
+      this.id = params.get('sigla');
       this.nombreMateria = params.get('nombre') ?? ''; // Asigna una cadena vacía si params.get('nombre') es null
       // You can now use the personId in your component
-      this.nombreCOMPLETO = this.sigla + " - " + this.nombreMateria ; // Asigna el nombre de la materia aquí o realiza una lógica para obtenerlo
+      this.nombreCOMPLETO = /*this.sigla + " - " + */this.nombreMateria ; // Asigna el nombre de la materia aquí o realiza una lógica para obtenerlo
       console.log(this.nombreCOMPLETO);
     });
-
-    this.inscritosService.obtenerDatos().subscribe(
+    console.log(this.id)
+    let n = 1;
+    this.inscritosService.obtenerDatos(this.id!).subscribe(
       (data) => this.inscritos = data,
       error => console.log(error),
       () => console.log("FIN")

@@ -4,22 +4,22 @@
         <table>
             <thead>
             <tr>
-                <th>Carnet Estudiante</th>
-                <th>Sigla Materia</th>
+                <th>Estudiante</th>
+                <!--<th>Sigla Materia</th>-->
                 <th>Evaluación</th>
                 <th>Nota</th>
-                <th>Fecha</th>
+                <!--<th>Fecha</th>-->
                 <th>Gestión</th>
             </tr>
                 
             </thead>
             <tbody>
                 <tr *ngFor="let item of notas">
-                    <td>{{item.carnet_estudiante}}</td>
-                    <td>{{item.sigla_materia}}</td>
+                    <td>{{item.estudiante.nombre_completo}}</td>
+                    <!--<td>{{item.materia.}}</td>-->
                     <td>{{item.evaluacion}}</td>
-                    <td>{{item.nota}}</td>
-                    <td>{{item.fecha}}</td>
+                    <td>{{item.calificacion}}</td>
+                    <!--<td>{{item.fecha}}</td>-->
                     <td>{{item.gestion}}</td>
 
                 </tr>

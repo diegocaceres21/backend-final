@@ -1,4 +1,41 @@
 <body>
+    <div class="container">
+        <div>
+          <h1>Nuevo Estudiante</h1> 
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          
+             <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Carnet</mat-label>
+                <input required matInput formControlName="carnet">
+                <mat-error class="error" *ngIf="isSubmitted && myForm.get('carnet')!.invalid">
+                  Este campo es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>IdMateria</mat-label>
+                <input type="number" required matInput formControlName="id_materia">
+                <mat-error class="error" *ngIf="isSubmitted && myForm.get('id_materia')!.invalid">
+                  Este campo es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Fecha de Inscripcion</mat-label>
+                <input matInput required [matDatepicker]="picker" formControlName="fecha_inscripcion">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error class="error" *ngIf="isSubmitted && myForm.get('fecha_inscripcion')!.invalid">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+              
+   
+              <br>
+          
+          <button mat-raised-button color="primary" type="submit" >Send</button>
+        </form>
+      </div>
+      <p class="mensaje" *ngIf="successful">Subido exitosamente</p>
+      <!--
     <h1>INSCRIPCIÓN DE ESTUDIANTES</h1>
     <form class="box">
         <label for="Estudiante">Estudiante: </label>
@@ -9,7 +46,6 @@
 
         <label for="SIGLA-materia"> SIGLA-materia: </label>
         <input type="text" id="SIGLA-materia" name="SIGLA-materia" required>
-
 
         <label for="FECHA-inscripcion"> Fecha de inscripcion: </label>
         <input type="date" id="FECHA-inscripcion" name="FECHA-inscripcion" required>
@@ -40,4 +76,4 @@
 
         <input class="enviarDato" type="submit" value="Enviar">
     </form>
-</body>
+</body>-->

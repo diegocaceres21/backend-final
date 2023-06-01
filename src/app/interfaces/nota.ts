@@ -1,8 +1,13 @@
+import { Estudiante } from "./estudiante";
+import { Materia } from "./materia";
+
 export interface Nota {
-    carnet_estudiante: string;
-    sigla_materia: string;
+    //carnet_estudiante: string;
+    //sigla_materia: string;
     evaluacion:string;
-    nota: number;
-    fecha: Date;
+    calificacion: number;
+    //fecha: Date;
     gestion: string;
+    materia: Materia;
+    estudiante: Estudiante;
 }
