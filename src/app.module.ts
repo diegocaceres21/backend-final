@@ -9,13 +9,13 @@ import { InscripcionesModule } from './inscripciones/inscripciones.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({type: 'mysql',
-  host: 'localhost',
+  host: 'db4free.net',//loalhost
   port: 3306,
-  username: 'root',
-  password: '12345678',
-  database: 'proyfinaltecweb',
+  username: 'tecweb',//root
+  password: 'tec12345',//12345678
+  database: 'ucbfinal',//proyfinaltecweb
   synchronize: true,
-  autoLoadEntities:true
+  autoLoadEntities:true 
 }),EstudiantesModule,MateriasModule,NotasModule,InscripcionesModule],
   controllers: [AppController],
   providers: [AppService],
