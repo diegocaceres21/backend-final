@@ -6,11 +6,18 @@
 }
 .nuevo{
     background-color: blue;
+    align-self: flex-end;
 }
 
+.button-div{
+    display: flex;
+    justify-content: end;
+    margin: 5px 15px;
+}
 .materia-card{
     flex-basis: 30%;
     margin: 10px 15px;
+    justify-self: flex-start;
     //idth: 30%;
 }
 mat-card-actions button{

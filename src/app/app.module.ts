@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatNativeDateModule } from '@angular/material/core';
 import { EstudiantesComponent } from './paginas/estudiantes/estudiantes.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -24,6 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NewEstudianteComponent } from './modals/new-estudiante/new-estudiante.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { InscritosComponent } from './paginas/inscritos/inscritos.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,12 @@ import { InscritosComponent } from './paginas/inscritos/inscritos.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
+    MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    MatExpansionModule,
     MatInputModule,
+    MatListModule,
     MatCardModule,
     MatDatepickerModule,
     MatButtonModule,

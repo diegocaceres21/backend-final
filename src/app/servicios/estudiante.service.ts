@@ -10,7 +10,7 @@ export class EstudianteService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/estudiantes'
+  url = 'https://tec-web-backend.vercel.app/estudiantes'
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
