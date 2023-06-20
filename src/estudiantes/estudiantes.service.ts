@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateEstudiante } from './dto/create-estudiante.dto';
 import { Estudiante } from './entities/estudiante.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import{Repository}from 'typeorm';
+import{ILike, Repository}from 'typeorm';
 import { UpdateEstudiante } from './dto/update-estudiante.dto';
 @Injectable()
 export class EstudianteService{
@@ -20,6 +20,14 @@ export class EstudianteService{
               carnet,
             },relations: ['nota', 'inscripcion']
           });
+    }
+    findFiltro(cadena: string){
+      return  this.EstudianteRepository.find({
+        relations:['nota','inscripcion'],
+        where: {
+          nombre_completo: ILike(`${cadena}%`),
+        }
+      });
     }
     update(carnet:number,updateEstudiante:UpdateEstudiante){
         return this.EstudianteRepository.update({carnet:carnet}, {
