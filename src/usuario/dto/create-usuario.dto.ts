@@ -3,11 +3,11 @@ import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 export class CreateUsuarioDto{
     
     @IsString()
-    @MaxLength(10, {message: 'nombre: longitud maxima de 10'})
+    @MaxLength(40, {message: 'nombre: longitud maxima de 40'})
     nombre: string;
 
     @IsNotEmpty({message: 'el nombre de usuario no puede estar vacio'})
-    @MaxLength(10, {message: 'nombre de usuario: longitud maxima de 10'})
+    @MaxLength(40, {message: 'nombre de usuario: longitud maxima de 40'})
     nombreUsuario: string;
 
     @IsEmail()

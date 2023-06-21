@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateInscripcion } from './dto/create-inscripcion.dto';
 import { Inscripcion } from './entities/inscripcion.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -7,6 +7,8 @@ import { UpdateEstudiante } from 'src/estudiantes/dto/update-estudiante.dto';
 import { UpdateInscripcion } from './dto/update-inscripcion.dto';
 import { EstudianteService } from 'src/estudiantes/estudiantes.service';
 import { MateriaService } from 'src/materias/materias.service';
+import { promises } from 'dns';
+import { MessageDto } from 'src/common/message.dto';
 @Injectable()
 export class InscripcionService{
     constructor(@InjectRepository(Inscripcion)private InscripcionRepository:Repository<Inscripcion>,
@@ -21,6 +23,9 @@ export class InscripcionService{
         }
         if(!materia){
             throw new NotFoundException('No se ha encontrado a una materia con esa sigla')
+        }
+        if(await this.checkIfEstudianteExists(materia.id, estudiante.carnet)){
+            throw new BadRequestException(new MessageDto('Este estudiante ya esta inscrito a la materia'));
         }
         const inscripcion  =new Inscripcion();
         inscripcion.fecha_inscripcion = createInscripcion.fecha_inscripcion;
@@ -37,6 +42,21 @@ export class InscripcionService{
     findOne(id:number){
         return this.InscripcionRepository.findOneBy({id:id});
     }
+
+    async checkIfEstudianteExists(idMateria: number, idEstudiante:number) {
+        console.log(idMateria)
+        console.log(idEstudiante)
+        const result = this.InscripcionRepository.createQueryBuilder('inscripcion')
+        //.select('materia','estudiante')
+        .leftJoin('inscripcion.materia', 'materia')
+        .leftJoin('inscripcion.estudiante', 'estudiante')
+        .where('materia.id = :idMateria', { idMateria })
+        .andWhere('estudiante.carnet = :idEstudiante', { idEstudiante})
+        .getCount();
+        const hasData = await result > 0; // If the count is greater than 0, it means there is data
+        console.log( await result)
+        return hasData;
+      }
 
     findMateria(id:number){
         return this.InscripcionRepository.createQueryBuilder('nota')

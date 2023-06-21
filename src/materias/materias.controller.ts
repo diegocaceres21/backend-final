@@ -31,6 +31,14 @@ export class MateriasController {
         return this.materiaService.findFiltro(cadena);
     }
 
+    @RolDecorator(RolNombre.ADMIN, RolNombre.TEACHER, RolNombre.STUDENT)
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    @Get('/estudiante/:id')
+    findByEstudiante(@Param('id')id:number){
+        return this.materiaService.findByStudent(id);
+    }
+
+
     @RolDecorator(RolNombre.ADMIN)
     @UseGuards(JwtAuthGuard, RolesGuard)
     @Post('')

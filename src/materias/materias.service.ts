@@ -20,6 +20,15 @@ export class MateriaService{
             relations:['nota','inscripcion']
           });
     }
+
+    findByStudent(id:number){
+      return this.MateriaRepository.createQueryBuilder('materia')
+        //.select('materia','estudiante')
+        .leftJoin('materia.inscripcion', 'inscripcion')
+        .where('inscripcion.estudiante.carnet = :id', { id })
+        .getMany();
+    }
+
     findOne(id:number){
         return this.MateriaRepository.findOne({
             where: {

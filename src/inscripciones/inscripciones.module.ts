@@ -9,7 +9,8 @@ import { MateriasModule } from 'src/materias/materias.module';
 @Module({
   controllers: [InscripcionesController],
   providers:[InscripcionService],
-  imports:[TypeOrmModule.forFeature([Inscripcion]),EstudiantesModule,MateriasModule]
+  imports:[TypeOrmModule.forFeature([Inscripcion]),EstudiantesModule,MateriasModule],
+  exports: [InscripcionService]
 })
 export class InscripcionesModule {}
 

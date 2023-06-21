@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateNota } from './dto/create-nota.dto';
 import { Nota } from './entities/nota.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -9,6 +9,8 @@ import { Materia } from 'src/materias/entities/materia.entity';
 import { from } from 'rxjs';
 import { EstudianteService } from 'src/estudiantes/estudiantes.service';
 import { MateriaService } from 'src/materias/materias.service';
+import { InscripcionService } from 'src/inscripciones/inscripciones.service';
+import { MessageDto } from 'src/common/message.dto';
 
 @Injectable()
 export class NotaService{
@@ -16,6 +18,7 @@ export class NotaService{
         @InjectRepository(Nota)private NotaRepository:Repository<Nota>,
         private estudianteService: EstudianteService,
         private materiaService : MateriaService,
+        private inscripcionService: InscripcionService
         //@InjectRepository(Estudiante)private EstudianteRepository:Repository<Estudiante>,
         //@InjectRepository(Materia)private MateriaRepository:Repository<Materia>,
         ){}
@@ -28,6 +31,9 @@ export class NotaService{
         }
         if(!materia){
             throw new NotFoundException('No se ha encontrado a una materia con esa sigla')
+        }
+        if(!await this.inscripcionService.checkIfEstudianteExists(materia.id, estudiante.carnet)){
+          throw new BadRequestException(new MessageDto('Este estudiante NO está inscrito a la materia'));
         }
         const newNota  =new Nota();
         newNota.calificacion = createNota.calificacion;
@@ -55,6 +61,21 @@ export class NotaService{
         .leftJoinAndSelect('nota.materia', 'materia')
         .leftJoinAndSelect('nota.estudiante', 'estudiante')
         .where('materia.id = :id', { id })
+        .getMany();
+        
+        /*find({
+            where: {
+              materia.id : id,
+            },relations: ['materia','estudiante']
+          });*/
+    }
+    findByStudentAndMateria(idMateria:number, idStudent: number){
+        return this.NotaRepository.createQueryBuilder('nota')
+        //.select('materia','estudiante')
+        .leftJoin('nota.materia', 'materia')
+        .leftJoin('nota.estudiante', 'estudiante')
+        .where('materia.id = :idMateria', { idMateria })
+        .andWhere('estudiante.carnet = :idStudent', { idStudent})
         .getMany();
         
         /*find({

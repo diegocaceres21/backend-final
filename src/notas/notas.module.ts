@@ -6,10 +6,11 @@ import { Nota } from './entities/nota.entity';
 
 import { EstudiantesModule } from 'src/estudiantes/estudiantes.module';
 import { MateriasModule } from 'src/materias/materias.module';
+import { InscripcionesModule } from 'src/inscripciones/inscripciones.module';
 
 @Module({
   controllers: [NotasController],
   providers:[NotaService],
-  imports:[TypeOrmModule.forFeature([Nota]),EstudiantesModule,MateriasModule]
+  imports:[TypeOrmModule.forFeature([Nota]),EstudiantesModule,MateriasModule,InscripcionesModule]
 })
 export class NotasModule {}
