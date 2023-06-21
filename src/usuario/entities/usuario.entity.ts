@@ -1,6 +1,7 @@
-import{Column,Entity,PrimaryGeneratedColumn,OneToMany,JoinTable,ManyToMany, BeforeInsert, BeforeUpdate}from 'typeorm';
+import{Column,Entity,PrimaryGeneratedColumn,OneToMany,JoinTable,ManyToMany, BeforeInsert, BeforeUpdate, OneToOne}from 'typeorm';
 import { RolEntity } from 'src/rol/entities/rol.entity';
 import { hash } from 'bcryptjs';
+import { Estudiante } from 'src/estudiantes/entities/estudiante.entity';
 
 //@Entity({name:'usuario'})
 @Entity()
@@ -23,6 +24,9 @@ export class UsuarioEntity{
         inverseJoinColumn:{name:'rol_id'}
     })
     roles:RolEntity[];
+    
+    @OneToOne(() => Estudiante, estudiante => estudiante.usuario) // Define the relationship with Student entity
+    estudiante: Estudiante;
 
     @BeforeInsert()
     @BeforeUpdate()

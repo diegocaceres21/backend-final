@@ -16,8 +16,8 @@ export class AuthController {
 
     @UsePipes(new ValidationPipe({whitelist:true}))
     @Post('nuevo')
-    create(@Body() dto: NuevoUsuarioDto){
-        return this.authService.create(dto);
+    createEstudiante(@Body() dto: NuevoUsuarioDto/*,@Body() estudiante*/){
+        return this.authService.createEstudiante(dto/*,estudiante*/);
     }
 
     @UsePipes(new ValidationPipe({whitelist:true}))

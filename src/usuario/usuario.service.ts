@@ -18,10 +18,20 @@ export class UsuarioService {
         private readonly usuarioRepositoty: UsuarioRepository
     ){}
     async getAll(): Promise<UsuarioEntity[]> {
-        const usuarios = await this.usuarioRepositoty.find();
+        const usuarios = await this.usuarioRepositoty.find({
+            relations:['estudiante']
+          });
      //   if(!usuarios.lenght)throw new NotFoundException(new MessageDto('no hay usuarios en la lista'))
         return usuarios;
 
+    }
+
+    getOne(id:number){
+        return this.usuarioRepositoty.findOne({
+            where: {
+              id,
+            },relations: ['estudiante']
+          });;
     }
     async create(dto: CreateUsuarioDto): Promise<any>{
         const {nombreUsuario, email} = dto;

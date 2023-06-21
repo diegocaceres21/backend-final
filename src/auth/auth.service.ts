@@ -30,22 +30,32 @@ export class AuthService {
         return usuarios;
 
     }
-    async create(dto: NuevoUsuarioDto): Promise<any>{
+    /*async createEstudiante(dto: NuevoUsuarioDto): Promise<any>{
         const{nombreUsuario,email} = dto
         const exists = await this.authRepository.findOne({where:[{nombreUsuario: nombreUsuario}, {email: email}]});
-   //     if(exists)throw new BadRequestException(new MessageDto('ese usuario ya existe'));
-        //const rolAdmin = await this.rolRepository.findOne({where:{rolNombre:RolNombre.ADMIN}});
         const rolStudent = await this.rolRepository.findOne({where:{rolNombre:RolNombre.STUDENT}});
-        //const rolTeacher = await this.rolRepository.findOne({where:{rolNombre:RolNombre.TEACHER}});
-     //   if(!rolAdmin||!rolStudent||!rolTeacher)throw InternalServerErrorException(new MessageDto('los roles aun no se han creado'));
      const admin =this.authRepository.create(dto);
      admin.roles=[rolStudent];
      await this.authRepository.save(admin);  
 
 
         
-      //  return new MessageDto("admin creado");  
+      return new MessageDto("Creado");  
+    }*/
+    async createEstudiante(user/*, estudiante*/): Promise<any>{
+        //const{nombreUsuario,email} = user
+        //const exists = await this.authRepository.findOne({where:[{nombreUsuario: nombreUsuario}, {email: email}]});
+        const rolStudent = await this.rolRepository.findOne({where:{rolNombre:RolNombre.STUDENT}});
+        //const admin =this.authRepository.create(dto);
+        user.roles=[rolStudent];
+        //user.estudiante = estudiante;
+        await this.authRepository.save(user);  
+
+
+        
+      return new MessageDto("Creado");  
     }
+
 
     async login (dto:LoginUsuarioDto): Promise<any>{
         const {nombreUsuario} = dto;
