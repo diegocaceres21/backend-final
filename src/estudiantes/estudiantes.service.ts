@@ -74,5 +74,5 @@ export class EstudianteService{
     }
     remove(carnet:number){
         return this.EstudianteRepository.delete(carnet);
-    }
+    } 
 }

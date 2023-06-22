@@ -19,7 +19,7 @@ export class Estudiante{
     @OneToMany(()=>Inscripcion,(inscripcion)=>inscripcion.estudiante)
     inscripcion:Inscripcion[]
 
-    @OneToOne(() => UsuarioEntity, usuario => usuario.estudiante, { cascade: true }) // Define the relationship with User entity and enable cascading
+    @OneToOne(() => UsuarioEntity, usuario => usuario.estudiante, { cascade: true,onDelete: 'CASCADE' }) // Define the relationship with User entity and enable cascading
     @JoinColumn()
     usuario: UsuarioEntity;
 }
