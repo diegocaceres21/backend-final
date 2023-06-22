@@ -66,10 +66,10 @@ export class EstudianteService{
     update(carnet:number,updateEstudiante:UpdateEstudiante){
         return this.EstudianteRepository.update({carnet:carnet}, {
           //  carnet:updateEstudiante.carnet,
-            nombre_completo:updateEstudiante.nombre_completo,
-            //celular:updateEstudiante.celular,
+            //nombre_completo:updateEstudiante.nombre_completo,
+            celular:updateEstudiante.celular,
             email: updateEstudiante.email,
-            fecha_nacimiento:updateEstudiante.fecha_nacimiento
+            //fecha_nacimiento:updateEstudiante.fecha_nacimiento
         });
     }
     remove(carnet:number){
